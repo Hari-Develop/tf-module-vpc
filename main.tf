@@ -31,7 +31,7 @@ resource "aws_nat_gateway" "ngw" {
 
 count = length(lookup(lookup(var.subnets , "public" , null), "cidr_block", 0))
 allocation_id = aws_eip.ngw[count.index].id
-subnet_id     = module.subnet["public"].subnet_ids[count.index]
+subnet_id     = module.subnets["public"].subnet_ids[count.index]
 
 tags = merge( var.tags , {Name = "${var.env}-ngw"} )
 
