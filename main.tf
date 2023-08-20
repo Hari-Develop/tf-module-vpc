@@ -39,5 +39,5 @@ depends_on = [aws_internet_gateway.example]
 }
 
 output "subnet_ids" {
-  value = modulue.subnets
+  value = module.subnets
 }
